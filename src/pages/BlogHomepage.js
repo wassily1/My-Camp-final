@@ -8,7 +8,7 @@ import { Link,Routes,Route } from 'react-router-dom';
 import BlogDetail from '../comp/BlogDetail';
 import WriteBlog from '../comp/WriteBlog';
 import blogs from '../data/blogs'
-
+import url from '../url'
 const { Header, Content, Footer } = Layout;
 const { Component } = require("react");
 const { Meta } = Card;
@@ -189,7 +189,7 @@ function jsonDateReviver(key, value) {
 
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://localhost:8000/graphql', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })

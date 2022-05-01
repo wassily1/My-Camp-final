@@ -6,6 +6,7 @@ import { FireOutlined } from '@ant-design/icons';
 import campsites from '../data/campsites'
 import CampsiteCard from '../comp/CampsiteCard'
 import moment from 'moment';
+import url from '../url'
 const { Component } = require("react");
 const { Header, Content, Footer } = Layout;
 const { TabPane } = Tabs;
@@ -158,13 +159,14 @@ render(){
 }
 
 const dateRegex = new RegExp('^\\d\\d\\d\\d-\\d\\d-\\d\\d');
+
 function jsonDateReviver(key, value) {
   if (dateRegex.test(value)) return new Date(value);
   return value;
 }
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://localhost:8000/graphql', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })

@@ -5,7 +5,7 @@ import { Layout,Form,Menu,InputNumber,Empty, List,Descriptions,Rate,Button,PageH
 import { Row, Col,Space,Modal,DatePicker } from 'antd';
 import { PlusOutlined,MinusOutlined } from '@ant-design/icons';
 import moment from 'moment';
-
+import url from '../url'
 import Rating from '../comp/Rating'
 import campsites from '../data/campsites'
 
@@ -296,7 +296,7 @@ export default CampsitePage
 
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://localhost:8000/graphql', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })

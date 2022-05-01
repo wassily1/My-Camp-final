@@ -2,7 +2,7 @@ import React, { useState,useEffect} from 'react'
 import '../css/homepage.css';
 import { Card } from 'antd';
 import 'antd/dist/antd.css'; 
-
+import url from '../url'
 import { Layout, Menu, Breadcrumb,Avatar,Button,PageHeader,Typography  } from 'antd';
 import { StarOutlined  } from '@ant-design/icons';
 import { Row, Col } from 'antd';
@@ -129,7 +129,7 @@ const BlogDetail = () =>{
 export default BlogDetail;
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://localhost:8000/graphql', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })

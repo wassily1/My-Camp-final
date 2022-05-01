@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb,Avatar,Button,PageHeader,Typography,Divider,Input,Select,Form,InputNumber,DatePicker  } from 'antd';
 import { Row, Col } from 'antd';
 import moment from 'moment';
-
+import url from '../url'
 const { Header, Content, Footer } = Layout;
 const { Title, Paragraph, Text, Link  } = Typography;
 const { Component } = require("react");
@@ -143,7 +143,7 @@ function jsonDateReviver(key, value) {
 }
 async function graphQLFetch(query, variables = {}) {
     try {
-        const response = await fetch('http://localhost:8000/graphql', {
+        const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify( {query, variables} )

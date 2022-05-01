@@ -7,7 +7,7 @@ import { FireOutlined, CalendarOutlined, EditOutlined,StarOutlined  } from '@ant
 import { Link,Routes,Route } from 'react-router-dom';
 import BlogDetail from '../comp/BlogDetail';
 import WriteBlog from '../comp/WriteBlog';
-
+import url from '../url'
 
 const { Header, Content, Footer } = Layout;
 const { Component } = require("react");
@@ -23,6 +23,7 @@ export default class PersonalPage extends Component{
     };
 
     componentDidMount() {
+        console.log(url)
       this.loadData();
     }
 
@@ -259,7 +260,7 @@ function jsonDateReviver(key, value) {
 
 async function graphQLFetch(query, variables = {}) {
   try {
-    const response = await fetch('http://localhost:8000/graphql', {
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ query, variables })
